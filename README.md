@@ -8,6 +8,35 @@ date: 2023-06-07
 
 ## Introduction
 
+- create a flask web
+- add tailwind
+- add polly and s3 client
+- add userdata for deployment
+
+## Flask Web
+
+Let create a fask web app with project structures as following
+
+```
+
+```
+
+## Tailwind
+
+Let add tailwind to the project
+
+```
+
+```
+
+## Home Page
+
+Let create a simple grid of book
+
+## Polly
+
+Let add polly to convert text to speech
+
 ## User Data
 
 ```bash
