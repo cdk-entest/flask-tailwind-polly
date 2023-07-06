@@ -8,7 +8,9 @@ date: 2023-06-07
 
 ## Introduction
 
-- create a flask web
+[GitHub](https://github.com/cdk-entest/flask-tailwind-polly) this note shows how to
+
+- create a flask web app
 - add tailwind
 - add polly and s3 client
 - add userdata for deployment
