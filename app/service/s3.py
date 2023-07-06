@@ -7,15 +7,19 @@ import boto3
 from contextlib import closing
 import uuid
 
-# boto3 client
-s3_client = boto3.client("s3")
-polly_client = boto3.client("polly")
-
 # parameter 
 try: 
     BUCKET_NAME = os.environ['BUCKET_NAME']
+    REGION = os.environ["REGION"]
 except:
     BUCKET_NAME = ""
+    REGION = "ap-southeast-1"
+
+# boto3 client
+s3_client = boto3.client("s3", region_name=REGION)
+polly_client = boto3.client("polly", region_name=REGION)
+
+
 
 def get_presigned_url(key):
     url = s3_client.generate_presigned_url(
