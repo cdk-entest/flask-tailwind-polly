@@ -1,3 +1,8 @@
+# =====================================================
+# haimtran 06/07/2023
+# simple services with s3 and polly
+# ===================================================== 
+import os 
 import boto3
 from contextlib import closing
 import uuid
@@ -7,8 +12,10 @@ s3_client = boto3.client("s3")
 polly_client = boto3.client("polly")
 
 # parameter 
-BUCKET_NAME = "cdk-entest-videos"
-
+try: 
+    BUCKET_NAME = os.environ['BUCKET_NAME']
+except:
+    BUCKET_NAME = ""
 
 def get_presigned_url(key):
     url = s3_client.generate_presigned_url(
