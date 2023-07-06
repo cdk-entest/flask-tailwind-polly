@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- entest 29 april 2023 basic tailwind -->
-<html>
+<html class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-100">
+  <body class="dark:bg-slate-800">
     <div class="bg-green-400 py-3">
       <nav class="flex mx-auto max-w-5xl px-2 justify-between">
         <a href="#" class="font-bold text-2xl"> Entest </a>
@@ -39,9 +39,9 @@
       </div>
     </div>
     <div class="mx-auto max-w-5xl">
-      {% for row in range(0,nrow,2) %}
-      <div class="md:flex gap-x-5 flex-row mb-8">
-        <div class="ml-4 bg-white flex-auto w-full clear-left">
+      <div class="grid grid-cols-2 gap-5">
+        {% for row in range(0,nrow,2) %}
+        <div class="ml-4 bg-white p-3 dark:bg-slate-900 dark:text-white">
           <h4 class="font-bold mb-8">{{ books[row].title }}</h4>
           <div>
             <img
@@ -50,36 +50,17 @@
               alt="book-image"
             />
           </div>
-          <p>{{ books[row].description}}</p>
+          <p class="text-sm">{{ books[row].description }}</p>
           <a href="{{ books[row].amazon }}" target="_blank">
             <button
-              class="bg-orange-300 px-14 py-3 rounded-md shadow-md hover:bg-orange-400"
+              class="bg-orange-400 px-14 py-3 rounded-md shadow-md hover:bg-orange-500 mt-2"
             >
               Amazon
             </button>
           </a>
         </div>
-        <div class="ml-4 bg-white flex-auto w-full clear-left">
-          <h4 class="font-bold mb-8">{{ books[row+1].title }}</h4>
-          <div>
-            <img
-              src="{{ books[row+1].image }}"
-              class="float-left h-auto w-64 mr-6"
-              alt="book-image"
-            />
-          </div>
-          <p></p>
-          <p>{{ books[row+1].description }}</p>
-          <a href="{{ books[row+1].amazon }}" target="_blank">
-            <button
-              class="bg-orange-300 px-14 py-3 rounded-md shadow-md hover:bg-orange-400"
-            >
-              Amazon
-            </button>
-          </a>
-        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
     <footer class="bg-gray-200 mt-12 text-gray-00 py-4">
       <div class="mx-auto max-w-5xl text-center text-base">

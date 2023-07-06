@@ -24,6 +24,10 @@ def index():
 def polly():
     return render_template("polly.html")
 
+# @app.route("/speech")
+# def speech():
+#     return render_template("speech.html", audio_url="", message="hello")
+
 @app.route("/speech", methods=["POST"])
 def speech():
     message = request.form.to_dict().get("text")
@@ -31,7 +35,7 @@ def speech():
     # get audio url 
     audio_url = polly_text_to_speech(message=message)
     # return 
-    return render_template("speech.html", audio_url=audio_url) 
+    return render_template("speech.html", audio_url=audio_url, message=message) 
 
 @app.route("/book")
 def book():
@@ -66,5 +70,5 @@ def gen_static_web():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
     # gen_static_web()
