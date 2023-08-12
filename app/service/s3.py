@@ -12,7 +12,7 @@ try:
     BUCKET_NAME = os.environ['BUCKET_NAME']
     REGION = os.environ["REGION"]
 except:
-    BUCKET_NAME = ""
+    BUCKET_NAME = "cdk-entest-videos"
     REGION = "ap-southeast-1"
 
 # boto3 client
