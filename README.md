@@ -178,3 +178,28 @@ export BUCKET_NAME=""
 export REGION="ap-southeast-1"
 python3 -m app
 ```
+
+## Troubleshooting
+
+To run locally without admin permission, please use 8080 port
+
+```py
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
+```
+
+Update the requirements.txt
+
+```tsx
+boto3==1.24.47
+names==0.3.0
+Flask==2.2.2
+Werkzeug==2.3.7
+```
+
+Please ensure to export correct bucket and region in the UserData
+
+```bash
+export BUCKET_NAME=""
+export REGION="ap-southeast-1"
+```
